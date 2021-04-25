@@ -36,9 +36,10 @@ struct ContentView: View {
             }
         }
     }
-    
+    let network = NetworkManager()
+
     func sendLightData() {
-        print("send to server")
+        network.sendData(type: .light)
     }
 
     private func addItem() {
