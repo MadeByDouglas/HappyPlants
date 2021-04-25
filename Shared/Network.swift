@@ -51,6 +51,8 @@ struct NetworkManager {
                 print(dataString!)
                 
                 let decoder = JSONDecoder()
+                decoder.dateDecodingStrategy = .iso8601
+                
                 let light = try! decoder.decode(Light.self, from: data)
                 
                 let formatter = DateFormatter()

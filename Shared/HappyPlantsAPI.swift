@@ -57,8 +57,14 @@ extension HappyPlantsAPI {
         
         switch self {
         case .demo:
+            
+            
             let sensorData = Light(value: 58, timestamp: Date())
-            return try! JSONEncoder().encode(sensorData)
+            
+            let encoder = JSONEncoder()
+            encoder.dateEncodingStrategy = .iso8601
+            
+            return try! encoder.encode(sensorData)
 
         default:
             return nil
@@ -87,7 +93,7 @@ extension HappyPlantsAPI {
     }
 
     public var headers: [String: String]? {
-        let headers = ["Content-Type": "application/json"]
+        let headers = ["Content-Type": "application/json", "Accept": "application/json"]
         return headers
     }
 
