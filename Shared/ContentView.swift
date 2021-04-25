@@ -17,6 +17,9 @@ struct ContentView: View {
     private var items: FetchedResults<Item>
 
     var body: some View {
+        Button(action: sendLightData) {
+            Text("Send Light Data")
+        }
         List {
             ForEach(items) { item in
                 Text("Item at \(item.timestamp!, formatter: itemFormatter)")
@@ -32,6 +35,10 @@ struct ContentView: View {
                 Label("Add Item", systemImage: "plus")
             }
         }
+    }
+    
+    func sendLightData() {
+        print("send to server")
     }
 
     private func addItem() {
