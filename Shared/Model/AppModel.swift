@@ -39,3 +39,6 @@ public func displayDate(_ date: Date) -> String {
     
     return formatter.string(from: date)
 }
+
+
+let dummyData: [Plant] = [Plant(id: 0, name: "George", owner: Gardener(name: "Douglas Hewitt", bio: "A real plant person"), mood: .chill, lightData: Light(value: 54, timestamp: Date()), waterData: Water(value: 65, timestamp: Date()), lastInteraction: Date(), lastWatered: Date(), imageName: "plant1"), Plant(id: 1, name: "Roy", owner: Gardener(name: "Francesca", bio: "A real plant person"), mood: .happy, lightData: Light(value: 54, timestamp: Date()), waterData: Water(value: 65, timestamp: Date()), lastInteraction: Date(), lastWatered: Date(), imageName: "plant2")]

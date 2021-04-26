@@ -8,8 +8,15 @@
 import SwiftUI
 
 struct Community: View {
+    let plants: [Plant] = dummyData
+
     var body: some View {
-        Text("All the plants")
+        List {
+            ForEach(plants) { plant in
+                PlantRow(plant: plant)
+            }
+        }
+        .listStyle(PlainListStyle())
         .navigationTitle(NavigationItem.community.label)
 
     }

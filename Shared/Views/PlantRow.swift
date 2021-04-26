@@ -16,26 +16,30 @@ struct PlantRow: View {
                 .resizable()
                 .scaledToFit()
                 .clipShape(RoundedRectangle(cornerRadius: 24.0))
+                .frame(width: 100, height: 100, alignment: .center)
+            
             VStack(alignment: .leading, spacing: 8) {
-                Text(plant.name)
-                    .font(.title)
+                HStack() {
+                    Text(plant.name)
+                        .font(.title)
+                    Spacer()
+                    Text(plant.mood.rawValue)
+                        .font(.system(size: 36))
+                }
                 Text("Proudly owned by: " + plant.owner.name)
-                    .font(.title2)
+                    .font(.caption)
                 Text("Last played with: " + displayDate(plant.lastInteraction))
-                    .font(.caption)
+                    .font(.caption2)
                 Text("Last watered: " + displayDate(plant.lastWatered))
-                    .font(.caption)
+                    .font(.caption2)
             }
-            Spacer()
-            Text(plant.mood.rawValue)
-                .font(.system(size: 120))
+
         }
-        Divider()
     }
 }
 
 struct PlantRow_Previews: PreviewProvider {
     static var previews: some View {
-        PlantRow(plant: Plant(name: "George", owner: Gardener(name: "Yoshi", bio: "A real plant person"), mood: .chill, lightData: Light(value: 54, timestamp: Date()), waterData: Water(value: 65, timestamp: Date()), lastInteraction: Date(), lastWatered: Date(), imageName: "plant1"))
+        PlantRow(plant: Plant(id: 0, name: "George", owner: Gardener(name: "Yoshi", bio: "A real plant person"), mood: .chill, lightData: Light(value: 54, timestamp: Date()), waterData: Water(value: 65, timestamp: Date()), lastInteraction: Date(), lastWatered: Date(), imageName: "plant1"))
     }
 }

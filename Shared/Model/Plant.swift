@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct Plant: Codable {
+struct Plant: Codable, Identifiable {
+    var id: Int
     var name: String
     var owner: Gardener
     var mood: Mood
