@@ -9,6 +9,10 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
+    #if os(iOS)
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    #endif
+    
     @Environment(\.managedObjectContext) private var viewContext
 
     @FetchRequest(
@@ -20,9 +24,17 @@ struct ContentView: View {
 
     
     var body: some View {
-        Button(action: sendLightData) {
-            Text("Send Light Data")
+        #if os(iOS)
+        if horizontalSizeClass == .compact {
+            AppTabNavigation()
+        } else {
+            AppSidebarNavigation()
         }
+        #else
+        AppSidebarNavigation()
+        #endif
+        
+
         List {
             ForEach(items) { item in
                 Text("Item at \(item.timestamp!, formatter: itemFormatter)")

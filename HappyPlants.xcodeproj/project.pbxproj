@@ -29,6 +29,9 @@
 		A525D2ED26357E6800967098 /* Plant.swift in Sources */ = {isa = PBXBuildFile; fileRef = A525D2EB26357E6800967098 /* Plant.swift */; };
 		A525D2F326362DC400967098 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A525D2F226362DC400967098 /* LoginView.swift */; };
 		A525D2F426362DC400967098 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A525D2F226362DC400967098 /* LoginView.swift */; };
+		A525D3252636564700967098 /* AppTabNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A525D3242636564700967098 /* AppTabNavigation.swift */; };
+		A525D32B2636571F00967098 /* AppSidebarNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A525D32A2636571F00967098 /* AppSidebarNavigation.swift */; };
+		A525D32C2636571F00967098 /* AppSidebarNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A525D32A2636571F00967098 /* AppSidebarNavigation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +73,8 @@
 		A525D2E426357E6300967098 /* Gardener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gardener.swift; sourceTree = "<group>"; };
 		A525D2EB26357E6800967098 /* Plant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plant.swift; sourceTree = "<group>"; };
 		A525D2F226362DC400967098 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		A525D3242636564700967098 /* AppTabNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabNavigation.swift; sourceTree = "<group>"; };
+		A525D32A2636571F00967098 /* AppSidebarNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSidebarNavigation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,13 +124,11 @@
 		A525D28826357AA100967098 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				A525D2F226362DC400967098 /* LoginView.swift */,
 				A525D28B26357AA100967098 /* HappyPlantsApp.swift */,
-				A525D28C26357AA100967098 /* ContentView.swift */,
-				A525D2D626357C5100967098 /* Network.swift */,
-				A525D2E426357E6300967098 /* Gardener.swift */,
-				A525D2EB26357E6800967098 /* Plant.swift */,
-				A525D2DD26357CE200967098 /* HappyPlantsAPI.swift */,
+				A525D3342636583B00967098 /* Navigation */,
+				A525D3332636582600967098 /* Views */,
+				A525D3322636580000967098 /* Network */,
+				A525D3312636576D00967098 /* Model */,
 				A525D28D26357AA100967098 /* Persistence.swift */,
 				A525D28E26357AA300967098 /* Assets.xcassets */,
 				A525D28926357AA100967098 /* HappyPlants.xcdatamodeld */,
@@ -147,6 +150,7 @@
 		A525D29526357AA300967098 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
+				A525D3242636564700967098 /* AppTabNavigation.swift */,
 				A525D29626357AA300967098 /* Info.plist */,
 			);
 			path = iOS;
@@ -177,6 +181,41 @@
 				A525D2B426357AA300967098 /* Info.plist */,
 			);
 			path = "Tests macOS";
+			sourceTree = "<group>";
+		};
+		A525D3312636576D00967098 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A525D2E426357E6300967098 /* Gardener.swift */,
+				A525D2EB26357E6800967098 /* Plant.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A525D3322636580000967098 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				A525D2D626357C5100967098 /* Network.swift */,
+				A525D2DD26357CE200967098 /* HappyPlantsAPI.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		A525D3332636582600967098 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A525D2F226362DC400967098 /* LoginView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A525D3342636583B00967098 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				A525D28C26357AA100967098 /* ContentView.swift */,
+				A525D32A2636571F00967098 /* AppSidebarNavigation.swift */,
+			);
+			path = Navigation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -338,6 +377,7 @@
 			files = (
 				A525D2D726357C5100967098 /* Network.swift in Sources */,
 				A525D2B726357AA300967098 /* HappyPlantsApp.swift in Sources */,
+				A525D32B2636571F00967098 /* AppSidebarNavigation.swift in Sources */,
 				A525D2BB26357AA300967098 /* Persistence.swift in Sources */,
 				A525D2F326362DC400967098 /* LoginView.swift in Sources */,
 				A525D2DE26357CE200967098 /* HappyPlantsAPI.swift in Sources */,
@@ -345,6 +385,7 @@
 				A525D2EC26357E6800967098 /* Plant.swift in Sources */,
 				A525D2B526357AA300967098 /* HappyPlants.xcdatamodeld in Sources */,
 				A525D2B926357AA300967098 /* ContentView.swift in Sources */,
+				A525D3252636564700967098 /* AppTabNavigation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,6 +401,7 @@
 				A525D2E626357E6300967098 /* Gardener.swift in Sources */,
 				A525D2ED26357E6800967098 /* Plant.swift in Sources */,
 				A525D2B626357AA300967098 /* HappyPlants.xcdatamodeld in Sources */,
+				A525D32C2636571F00967098 /* AppSidebarNavigation.swift in Sources */,
 				A525D2BA26357AA300967098 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
