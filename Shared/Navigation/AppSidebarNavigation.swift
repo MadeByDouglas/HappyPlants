@@ -8,8 +8,31 @@
 import SwiftUI
 
 struct AppSidebarNavigation: View {
+    
+    @State private var selection: NavigationItem? = .myPlants
+
+    var sidebar: some View {
+        List(selection: $selection) {
+            NavigationLink(destination: MyPlants(), tag: NavigationItem.myPlants, selection: $selection) {
+                Label(NavigationItem.myPlants.label, systemImage: NavigationItem.myPlants.symbolName)
+            }
+            .tag(NavigationItem.myPlants)
+            
+            NavigationLink(destination: Community(), tag: NavigationItem.community, selection: $selection) {
+                Label(NavigationItem.community.label, systemImage: NavigationItem.community.symbolName)
+            }
+            .tag(NavigationItem.community)
+        }
+        .listStyle(SidebarListStyle())
+    }
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            sidebar
+            
+            Text("No Plants Found")
+                .foregroundColor(.secondary)
+        }
     }
 }
 

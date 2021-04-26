@@ -13,14 +13,19 @@ struct LoginView: View {
     @Binding var isPresented: Bool
 
     var body: some View {
-        VStack(alignment: .center) {
+        VStack(alignment: .center, spacing: 18) {
             Text("Create your Gardener Name")
                 .font(.largeTitle)
             TextField("Enter username...", text: $username)
+            Divider()
             Spacer()
             Button(action: setUsername) {
                 Text("Done")
+                    .fontWeight(.bold)
+                    .frame(maxWidth: .infinity)
             }
+            .buttonStyle(BlueButtonStyle())
+            .padding(.bottom, 24)
             
         }.padding()
         

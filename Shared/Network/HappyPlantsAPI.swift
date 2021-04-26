@@ -30,9 +30,7 @@ extension HappyPlantsAPI {
     }
     
     var username: String? {
-        get {
-            UserDefaults.standard.string(forKey: UserKeys.username.rawValue)
-        }
+        UserDefaults.standard.string(forKey: UserKeys.username.rawValue)
     }
     
     var path: String {

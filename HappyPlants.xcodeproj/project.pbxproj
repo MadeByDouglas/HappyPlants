@@ -32,6 +32,16 @@
 		A525D3252636564700967098 /* AppTabNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A525D3242636564700967098 /* AppTabNavigation.swift */; };
 		A525D32B2636571F00967098 /* AppSidebarNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A525D32A2636571F00967098 /* AppSidebarNavigation.swift */; };
 		A525D32C2636571F00967098 /* AppSidebarNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A525D32A2636571F00967098 /* AppSidebarNavigation.swift */; };
+		A525D33A263658B600967098 /* MyPlants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A525D339263658B600967098 /* MyPlants.swift */; };
+		A525D33B263658B600967098 /* MyPlants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A525D339263658B600967098 /* MyPlants.swift */; };
+		A525D341263658C900967098 /* Community.swift in Sources */ = {isa = PBXBuildFile; fileRef = A525D340263658C900967098 /* Community.swift */; };
+		A525D342263658C900967098 /* Community.swift in Sources */ = {isa = PBXBuildFile; fileRef = A525D340263658C900967098 /* Community.swift */; };
+		A525D3482636619E00967098 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A525D3472636619D00967098 /* AppModel.swift */; };
+		A525D3492636619E00967098 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A525D3472636619D00967098 /* AppModel.swift */; };
+		A525D34F2636659D00967098 /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = A525D34E2636659D00967098 /* Styles.swift */; };
+		A525D3502636659D00967098 /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = A525D34E2636659D00967098 /* Styles.swift */; };
+		A525D3562636718600967098 /* PlantRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A525D3552636718600967098 /* PlantRow.swift */; };
+		A525D3572636718600967098 /* PlantRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A525D3552636718600967098 /* PlantRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +85,11 @@
 		A525D2F226362DC400967098 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		A525D3242636564700967098 /* AppTabNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabNavigation.swift; sourceTree = "<group>"; };
 		A525D32A2636571F00967098 /* AppSidebarNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSidebarNavigation.swift; sourceTree = "<group>"; };
+		A525D339263658B600967098 /* MyPlants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPlants.swift; sourceTree = "<group>"; };
+		A525D340263658C900967098 /* Community.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Community.swift; sourceTree = "<group>"; };
+		A525D3472636619D00967098 /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
+		A525D34E2636659D00967098 /* Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
+		A525D3552636718600967098 /* PlantRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +202,8 @@
 			isa = PBXGroup;
 			children = (
 				A525D2E426357E6300967098 /* Gardener.swift */,
+				A525D3472636619D00967098 /* AppModel.swift */,
+				A525D34E2636659D00967098 /* Styles.swift */,
 				A525D2EB26357E6800967098 /* Plant.swift */,
 			);
 			path = Model;
@@ -205,6 +222,9 @@
 			isa = PBXGroup;
 			children = (
 				A525D2F226362DC400967098 /* LoginView.swift */,
+				A525D339263658B600967098 /* MyPlants.swift */,
+				A525D3552636718600967098 /* PlantRow.swift */,
+				A525D340263658C900967098 /* Community.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -375,16 +395,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A525D3562636718600967098 /* PlantRow.swift in Sources */,
 				A525D2D726357C5100967098 /* Network.swift in Sources */,
+				A525D33A263658B600967098 /* MyPlants.swift in Sources */,
 				A525D2B726357AA300967098 /* HappyPlantsApp.swift in Sources */,
 				A525D32B2636571F00967098 /* AppSidebarNavigation.swift in Sources */,
 				A525D2BB26357AA300967098 /* Persistence.swift in Sources */,
 				A525D2F326362DC400967098 /* LoginView.swift in Sources */,
+				A525D34F2636659D00967098 /* Styles.swift in Sources */,
 				A525D2DE26357CE200967098 /* HappyPlantsAPI.swift in Sources */,
+				A525D3482636619E00967098 /* AppModel.swift in Sources */,
 				A525D2E526357E6300967098 /* Gardener.swift in Sources */,
 				A525D2EC26357E6800967098 /* Plant.swift in Sources */,
 				A525D2B526357AA300967098 /* HappyPlants.xcdatamodeld in Sources */,
 				A525D2B926357AA300967098 /* ContentView.swift in Sources */,
+				A525D341263658C900967098 /* Community.swift in Sources */,
 				A525D3252636564700967098 /* AppTabNavigation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -394,15 +419,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				A525D2D826357C5100967098 /* Network.swift in Sources */,
+				A525D3502636659D00967098 /* Styles.swift in Sources */,
 				A525D2B826357AA300967098 /* HappyPlantsApp.swift in Sources */,
 				A525D2BC26357AA300967098 /* Persistence.swift in Sources */,
+				A525D342263658C900967098 /* Community.swift in Sources */,
 				A525D2F426362DC400967098 /* LoginView.swift in Sources */,
 				A525D2DF26357CE200967098 /* HappyPlantsAPI.swift in Sources */,
 				A525D2E626357E6300967098 /* Gardener.swift in Sources */,
+				A525D3492636619E00967098 /* AppModel.swift in Sources */,
 				A525D2ED26357E6800967098 /* Plant.swift in Sources */,
 				A525D2B626357AA300967098 /* HappyPlants.xcdatamodeld in Sources */,
 				A525D32C2636571F00967098 /* AppSidebarNavigation.swift in Sources */,
 				A525D2BA26357AA300967098 /* ContentView.swift in Sources */,
+				A525D3572636718600967098 /* PlantRow.swift in Sources */,
+				A525D33B263658B600967098 /* MyPlants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,5 +9,5 @@ import Foundation
 
 struct Gardener: Codable {
     var name: String
-
+    var bio: String
 }

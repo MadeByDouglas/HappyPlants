@@ -21,10 +21,6 @@ enum NetworkError: String, Error {
     case decodingError = "decodingError"
 }
 
-public enum UserKeys: String {
-    case username = "username"
-}
-
 enum NetworkEnvironment {
     case dev
     case prod
@@ -57,12 +53,7 @@ struct NetworkManager {
                 
                 let light = try! decoder.decode(Light.self, from: data)
                 
-                let formatter = DateFormatter()
-                formatter.dateStyle = .long
-                formatter.timeStyle = .short
-                
-                let displayDate = formatter.string(from: light.timestamp)
-                print("Hey your plant has \(light.value) light at \(displayDate)")
+                print("Hey your plant has \(light.value) light at \(displayDate(light.timestamp))")
 
             case .failure(let error):
                 print(error)

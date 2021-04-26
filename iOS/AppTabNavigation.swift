@@ -8,8 +8,29 @@
 import SwiftUI
 
 struct AppTabNavigation: View {
+    
+    @State private var selection: NavigationItem = .myPlants
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        TabView(selection: $selection) {
+            NavigationView {
+                MyPlants()
+            }
+            .tabItem {
+                Label(NavigationItem.myPlants.label, systemImage: NavigationItem.myPlants.symbolName)
+                    .accessibility(label: Text(NavigationItem.myPlants.label))
+            }
+            .tag(NavigationItem.myPlants)
+            
+            NavigationView {
+                Community()
+            }
+            .tabItem {
+                Label(NavigationItem.community.label, systemImage: NavigationItem.community.symbolName)
+                    .accessibility(label: Text(NavigationItem.community.label))
+            }
+            .tag(NavigationItem.community)
+        }
     }
 }
 
