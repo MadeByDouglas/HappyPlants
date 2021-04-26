@@ -29,11 +29,17 @@ extension HappyPlantsAPI {
         return url
     }
     
+    var username: String? {
+        get {
+            UserDefaults.standard.string(forKey: UserKeys.username.rawValue)
+        }
+    }
+    
     var path: String {
         switch self {
         case .gardeners: return "gardeners/"
         case .plants: return "plants/"
-        case .demo: return "gardener/doug/alfred/light-sensor-data/"
+        case .demo: return "gardener/\(username ?? "")/alfred/light-sensor-data/"
         }
     }
     

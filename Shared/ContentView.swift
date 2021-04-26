@@ -16,6 +16,9 @@ struct ContentView: View {
         animation: .default)
     private var items: FetchedResults<Item>
 
+    @State var showingLogin = UserDefaults.standard.string(forKey: UserKeys.username.rawValue) == nil
+
+    
     var body: some View {
         Button(action: sendLightData) {
             Text("Send Light Data")
@@ -34,6 +37,14 @@ struct ContentView: View {
             Button(action: addItem) {
                 Label("Add Item", systemImage: "plus")
             }
+            Button(action: {
+                showingLogin.toggle()
+            }, label: {
+                Label("Account", systemImage: "person.crop.circle")
+            })
+        }
+        .sheet(isPresented: $showingLogin) {
+            LoginView(isPresented: $showingLogin)
         }
     }
     let network = NetworkManager()

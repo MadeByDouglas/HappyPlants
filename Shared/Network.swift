@@ -21,7 +21,9 @@ enum NetworkError: String, Error {
     case decodingError = "decodingError"
 }
 
-
+public enum UserKeys: String {
+    case username = "username"
+}
 
 enum NetworkEnvironment {
     case dev
