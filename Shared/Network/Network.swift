@@ -32,7 +32,7 @@ enum SensorData {
 }
 
 struct NetworkManager {
-    static let env = NetworkEnvironment.dev
+    static let env = NetworkEnvironment.prod
     
     let decoder = JSONDecoder()
     

@@ -18,9 +18,9 @@ extension HappyPlantsAPI {
     var environmentBase: String {
         switch NetworkManager.env {
         case .dev:
-            return "http://http://localhost:8080/"
+            return "http://http://localhost:8080"
         case .prod:
-            return "https://happy-plants.herokuapp.com/"
+            return "https://happy-plants.herokuapp.com"
         }
     }
     
@@ -35,9 +35,9 @@ extension HappyPlantsAPI {
     
     var path: String {
         switch self {
-        case .allPlants: return "plants"
-        case .myPlants: return "gardener/\(username ?? "")/plants"
-        case .addPlant: return "gardener/\(username ?? "")/add-plant"
+        case .allPlants: return "/plants"
+        case .myPlants: return "/gardener/\(username ?? "")/plants"
+        case .addPlant: return "/gardener/\(username ?? "")/add-plant"
         }
     }
     
