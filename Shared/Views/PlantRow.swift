@@ -40,6 +40,6 @@ struct PlantRow: View {
 
 struct PlantRow_Previews: PreviewProvider {
     static var previews: some View {
-        PlantRow(plant: Plant(id: 0, name: "George", owner: Gardener(name: "Yoshi", bio: "A real plant person"), mood: .chill, lightData: Light(value: 54, timestamp: Date()), waterData: Water(value: 65, timestamp: Date()), lastInteraction: Date(), lastWatered: Date(), imageName: "plant1"))
+        PlantRow(plant: Plant(name: "George", owner: Gardener(name: "Yoshi", bio: "A real plant person"), mood: .chill, lightData: Light(value: 54, timestamp: Date()), waterData: Water(value: 65, timestamp: Date()), lastInteraction: Date(), lastWatered: Date(), imageName: "plant1"))
     }
 }

@@ -8,9 +8,9 @@
 import Foundation
 
 enum HappyPlantsAPI {
-    case gardeners
-    case plants
-    case demo
+    case allPlants
+    case myPlants
+    case addPlant
 }
 
 extension HappyPlantsAPI {
@@ -18,7 +18,7 @@ extension HappyPlantsAPI {
     var environmentBase: String {
         switch NetworkManager.env {
         case .dev:
-            return "https://happy-plants.herokuapp.com/"
+            return "http://http://localhost:8080/"
         case .prod:
             return "https://happy-plants.herokuapp.com/"
         }
@@ -35,17 +35,17 @@ extension HappyPlantsAPI {
     
     var path: String {
         switch self {
-        case .gardeners: return "gardeners/"
-        case .plants: return "plants/"
-        case .demo: return "gardener/\(username ?? "")/alfred/light-sensor-data/"
+        case .allPlants: return "plants"
+        case .myPlants: return "gardener/\(username ?? "")/plants"
+        case .addPlant: return "gardener/\(username ?? "")/add-plant"
         }
     }
     
     var method: HTTPMethod {
         switch self {
-        case .gardeners: return .get
-        case .plants: return .get
-        case .demo: return .post
+        case .allPlants: return .get
+        case .myPlants: return .get
+        case .addPlant: return .post
         }
     }
     
@@ -60,15 +60,19 @@ extension HappyPlantsAPI {
 //        body = try JSONEncoder().encode(data)
         
         switch self {
-        case .demo:
+        case .addPlant:
             
+            guard let username = username else {return nil}
+            let images = ["plant1", "plant2"]
+            let randomImage = images.randomElement()!
             
-            let sensorData = Light(value: 58, timestamp: Date())
+            let newPlant = Plant(name: "George", owner: Gardener(name: username, bio: "A real plant person"), mood: .chill, lightData: Light(value: 0, timestamp: Date()), waterData: Water(value: 0, timestamp: Date()), lastInteraction: Date(), lastWatered: Date(), imageName: randomImage)
+
             
             let encoder = JSONEncoder()
             encoder.dateEncodingStrategy = .iso8601
             
-            return try! encoder.encode(sensorData)
+            return try! encoder.encode(newPlant)
 
         default:
             return nil

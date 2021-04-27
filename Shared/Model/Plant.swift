@@ -8,7 +8,7 @@
 import Foundation
 
 struct Plant: Codable, Identifiable {
-    var id: Int
+    var id: UUID = UUID()
     var name: String
     var owner: Gardener
     var mood: Mood

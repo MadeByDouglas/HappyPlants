@@ -33,9 +33,9 @@ struct MyPlants: View {
             #if os(iOS)
             ToolbarItemGroup(placement: .navigationBarTrailing) {
 //                EditButton()
-//                Button(action: addItem) {
-//                    Label("Add Item", systemImage: "plus")
-//                }
+                Button(action: createPlant) {
+                    Label("Add Item", systemImage: "plus")
+                }
                 Button(action: {
                     showingLogin.toggle()
                 }, label: {
@@ -44,9 +44,9 @@ struct MyPlants: View {
             }
             #else
             ToolbarItemGroup() {
-//                Button(action: addItem) {
-//                    Label("Add Item", systemImage: "plus")
-//                }
+                Button(action: createPlant) {
+                    Label("Add Item", systemImage: "plus")
+                }
                 Button(action: {
                     showingLogin.toggle()
                 }, label: {
@@ -59,6 +59,11 @@ struct MyPlants: View {
             LoginView(isPresented: $showingLogin)
         }
         .navigationTitle(NavigationItem.myPlants.label)
+    }
+    
+    func createPlant() {
+        let net = NetworkManager()
+        net.addPlant()
     }
     
 //    let network = NetworkManager()

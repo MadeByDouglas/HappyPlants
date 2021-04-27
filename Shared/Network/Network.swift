@@ -32,14 +32,12 @@ enum SensorData {
 }
 
 struct NetworkManager {
-    static let env = NetworkEnvironment.prod
+    static let env = NetworkEnvironment.dev
     
     let decoder = JSONDecoder()
     
-    func sendData(type: SensorData) {
-        let api = HappyPlantsAPI.demo
-        print(api.method)
-        print(api.baseURL)
+    func addPlant() {
+        let api = HappyPlantsAPI.addPlant
         api.request { (result) in
             switch result {
             case .success(let response, let data):
@@ -47,13 +45,6 @@ struct NetworkManager {
                 
                 let dataString = String(data: data, encoding: String.Encoding.utf8)
                 print(dataString!)
-                
-                let decoder = JSONDecoder()
-                decoder.dateDecodingStrategy = .iso8601
-                
-                let light = try! decoder.decode(Light.self, from: data)
-                
-                print("Hey your plant has \(light.value) light at \(displayDate(light.timestamp))")
 
             case .failure(let error):
                 print(error)
@@ -62,7 +53,7 @@ struct NetworkManager {
     }
     
     func getAllPeople(completion: @escaping GardenersCompletion) {
-        let api = HappyPlantsAPI.gardeners
+        let api = HappyPlantsAPI.allPlants
         
         api.request { (result) in
             switch result {
