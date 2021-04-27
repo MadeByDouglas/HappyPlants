@@ -24,7 +24,7 @@ struct LoginView: View {
                     .fontWeight(.bold)
                     .frame(maxWidth: .infinity)
             }
-            .buttonStyle(BlueButtonStyle())
+            .buttonStyle(BigButtonStyle())
             .padding(.bottom, 24)
             
         }.padding()

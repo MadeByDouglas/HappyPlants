@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-struct BlueButtonStyle: ButtonStyle {
+struct BigButtonStyle: ButtonStyle {
     func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
             .foregroundColor(Color.white)
             .padding()
-            .background(configuration.isPressed ? Color.gray : Color.blue)
+            .background(configuration.isPressed ? Color.gray : Color.accentColor)
             .cornerRadius(16.0)
             .frame(minWidth: 180, maxWidth: .infinity, minHeight: 44)
     }
