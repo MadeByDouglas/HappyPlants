@@ -12,11 +12,17 @@ struct PlantRow: View {
     
     var body: some View {
         HStack(alignment: .top, spacing: 20) {
-            Image(plant.imageName)
-                .resizable()
-                .scaledToFit()
-                .clipShape(RoundedRectangle(cornerRadius: 24.0))
-                .frame(width: 100, height: 100, alignment: .center)
+            VStack(alignment: .leading, spacing: 8) {
+                Image(plant.imageName)
+                    .resizable()
+                    .scaledToFit()
+                    .clipShape(RoundedRectangle(cornerRadius: 24.0))
+                    .frame(width: 100, height: 100, alignment: .center)
+                
+                Text("Light value: " + String(plant.lightData.value))
+                Text("Water value: " + String(plant.waterData.value))
+            }
+
             
             VStack(alignment: .leading, spacing: 8) {
                 HStack() {
@@ -24,7 +30,7 @@ struct PlantRow: View {
                         .font(.title)
                     Spacer()
                     Text(plant.mood.rawValue)
-                        .font(.system(size: 36))
+                        .font(.system(size: 72))
                 }
                 Text("Proudly owned by: " + plant.owner.name)
                     .font(.caption)
@@ -32,12 +38,6 @@ struct PlantRow: View {
                     .font(.caption2)
                 Text("Last watered: " + displayDate(plant.lastWatered))
                     .font(.caption2)
-                
-                HStack() {
-                    Text("Light value: " + String(plant.lightData.value))
-                    Spacer()
-                    Text("Water value: " + String(plant.waterData.value))
-                }
             }
 
         }
