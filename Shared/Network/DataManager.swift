@@ -14,13 +14,22 @@ class DataManager: NSObject, ObservableObject {
     @Published var myPlants: [Plant] = []
     @Published var allPlants: [Plant] = []
 
-
+    @Published var createNewPlantResponse: ServerMessage?
     
     
     let network = NetworkManager()
     
     func createPlant() {
-        network.addPlant()
+        network.addPlant { result in
+            switch result {
+            case .success(let message):
+                DispatchQueue.main.async {
+                    self.createNewPlantResponse = ServerMessage(message: message)
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
     
     func getAllPlants() {
@@ -68,4 +77,9 @@ class DataManager: NSObject, ObservableObject {
 //            }
 //        }
 //    }
+}
+
+struct ServerMessage: Identifiable {
+    var id: String { message }
+    let message: String
 }

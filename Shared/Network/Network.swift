@@ -13,6 +13,9 @@ typealias DataTaskCompletion = (DataTaskResult) -> Void
 typealias PlantsResult = Swift.Result<[Plant], Error>
 typealias PlantsCompletion = (PlantsResult) -> Void
 
+typealias CreatePlantResult = Swift.Result<String, Error>
+typealias CreatePlantCompletion = (CreatePlantResult) -> Void
+
 
 enum NetworkError: String, Error {
     case badToken = "invalid token"
@@ -36,18 +39,22 @@ struct NetworkManager {
     
     let decoder = JSONDecoder()
     
-    func addPlant() {
+    func addPlant(completion: @escaping CreatePlantCompletion) {
         let api = HappyPlantsAPI.addPlant
         api.request { (result) in
             switch result {
             case .success(let response, let data):
                 print(response.description)
                 
-                let dataString = String(data: data, encoding: String.Encoding.utf8)
-                print(dataString!)
+                guard let dataString = String(data: data, encoding: String.Encoding.utf8) else {
+                    completion(.success("Plant Successfully Created but server return message corrupted. Check Server Logs."))
+                    return
+                }
+                completion(.success(dataString))
 
             case .failure(let error):
                 print(error)
+                completion(.failure(error))
             }
         }
     }

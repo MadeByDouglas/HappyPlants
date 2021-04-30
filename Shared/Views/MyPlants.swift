@@ -19,7 +19,6 @@ struct MyPlants: View {
     
     @EnvironmentObject var data: DataManager
 
-    
     @State var showingLogin = UserDefaults.standard.string(forKey: UserKeys.username.rawValue) == nil
     
     var body: some View {
@@ -28,6 +27,9 @@ struct MyPlants: View {
                 PlantRow(plant: plant)
             }
 //            .onDelete(perform: deleteItems)
+        }
+        .alert(item: $data.createNewPlantResponse) { message in
+            Alert(title: Text("Success"), message: Text(message.message), dismissButton: .default(Text("Hooray!")))
         }
         .listStyle(PlainListStyle())
         .navigationTitle(NavigationItem.myPlants.label)
