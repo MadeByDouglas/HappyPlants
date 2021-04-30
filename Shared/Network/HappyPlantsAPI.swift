@@ -18,7 +18,7 @@ extension HappyPlantsAPI {
     var environmentBase: String {
         switch NetworkManager.env {
         case .dev:
-            return "http://http://localhost:8080"
+            return "http://127.0.0.1:8080"
         case .prod:
             return "https://happy-plants.herokuapp.com"
         }

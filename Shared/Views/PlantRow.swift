@@ -32,6 +32,12 @@ struct PlantRow: View {
                     .font(.caption2)
                 Text("Last watered: " + displayDate(plant.lastWatered))
                     .font(.caption2)
+                
+                HStack() {
+                    Text("Light value: " + String(plant.lightData.value))
+                    Spacer()
+                    Text("Water value: " + String(plant.waterData.value))
+                }
             }
 
         }

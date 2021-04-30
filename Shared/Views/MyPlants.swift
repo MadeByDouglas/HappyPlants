@@ -17,24 +17,32 @@ struct MyPlants: View {
 //        animation: .default)
 //    private var items: FetchedResults<Item>
     
-    @State var showingLogin = UserDefaults.standard.string(forKey: UserKeys.username.rawValue) == nil
+    @EnvironmentObject var data: DataManager
 
-    let plants: [Plant] = [dummyData.first!]
+    
+    @State var showingLogin = UserDefaults.standard.string(forKey: UserKeys.username.rawValue) == nil
     
     var body: some View {
         List {
-            ForEach(plants) { plant in
+            ForEach(data.myPlants) { plant in
                 PlantRow(plant: plant)
             }
 //            .onDelete(perform: deleteItems)
         }
         .listStyle(PlainListStyle())
+        .navigationTitle(NavigationItem.myPlants.label)
+        .sheet(isPresented: $showingLogin) {
+            LoginView(isPresented: $showingLogin)
+        }
         .toolbar {
             #if os(iOS)
             ToolbarItemGroup(placement: .navigationBarTrailing) {
 //                EditButton()
                 Button(action: createPlant) {
                     Label("Add Item", systemImage: "plus")
+                }
+                Button(action: getPlants) {
+                    Label("Plants", systemImage: "square.and.arrow.down.on.square")
                 }
                 Button(action: {
                     showingLogin.toggle()
@@ -47,6 +55,9 @@ struct MyPlants: View {
                 Button(action: createPlant) {
                     Label("Add Item", systemImage: "plus")
                 }
+                Button(action: getPlants) {
+                    Label("Plants", systemImage: "square.and.arrow.down.on.square")
+                }
                 Button(action: {
                     showingLogin.toggle()
                 }, label: {
@@ -55,15 +66,14 @@ struct MyPlants: View {
             }
             #endif
         }
-        .sheet(isPresented: $showingLogin) {
-            LoginView(isPresented: $showingLogin)
-        }
-        .navigationTitle(NavigationItem.myPlants.label)
     }
     
     func createPlant() {
-        let net = NetworkManager()
-        net.addPlant()
+        data.createPlant()
+    }
+    
+    func getPlants() {
+        data.getMyPlants()
     }
     
 //    let network = NetworkManager()

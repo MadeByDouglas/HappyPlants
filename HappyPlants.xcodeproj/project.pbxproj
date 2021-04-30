@@ -42,6 +42,8 @@
 		A525D3502636659D00967098 /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = A525D34E2636659D00967098 /* Styles.swift */; };
 		A525D3562636718600967098 /* PlantRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A525D3552636718600967098 /* PlantRow.swift */; };
 		A525D3572636718600967098 /* PlantRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A525D3552636718600967098 /* PlantRow.swift */; };
+		A57047FB263BD23000C6436D /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57047FA263BD23000C6436D /* DataManager.swift */; };
+		A57047FC263BD23000C6436D /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57047FA263BD23000C6436D /* DataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +92,7 @@
 		A525D3472636619D00967098 /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
 		A525D34E2636659D00967098 /* Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
 		A525D3552636718600967098 /* PlantRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantRow.swift; sourceTree = "<group>"; };
+		A57047FA263BD23000C6436D /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				A525D2D626357C5100967098 /* Network.swift */,
+				A57047FA263BD23000C6436D /* DataManager.swift */,
 				A525D2DD26357CE200967098 /* HappyPlantsAPI.swift */,
 			);
 			path = Network;
@@ -404,6 +408,7 @@
 				A525D2F326362DC400967098 /* LoginView.swift in Sources */,
 				A525D34F2636659D00967098 /* Styles.swift in Sources */,
 				A525D2DE26357CE200967098 /* HappyPlantsAPI.swift in Sources */,
+				A57047FB263BD23000C6436D /* DataManager.swift in Sources */,
 				A525D3482636619E00967098 /* AppModel.swift in Sources */,
 				A525D2E526357E6300967098 /* Gardener.swift in Sources */,
 				A525D2EC26357E6800967098 /* Plant.swift in Sources */,
@@ -419,6 +424,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A525D2D826357C5100967098 /* Network.swift in Sources */,
+				A57047FC263BD23000C6436D /* DataManager.swift in Sources */,
 				A525D3502636659D00967098 /* Styles.swift in Sources */,
 				A525D2B826357AA300967098 /* HappyPlantsApp.swift in Sources */,
 				A525D2BC26357AA300967098 /* Persistence.swift in Sources */,

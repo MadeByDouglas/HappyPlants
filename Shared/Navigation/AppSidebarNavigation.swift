@@ -13,12 +13,12 @@ struct AppSidebarNavigation: View {
 
     var sidebar: some View {
         List(selection: $selection) {
-            NavigationLink(destination: MyPlants(), tag: NavigationItem.myPlants, selection: $selection) {
+            NavigationLink(destination: MyPlants().environmentObject(DataManager.shared), tag: NavigationItem.myPlants, selection: $selection) {
                 Label(NavigationItem.myPlants.label, systemImage: NavigationItem.myPlants.symbolName)
             }
             .tag(NavigationItem.myPlants)
             
-            NavigationLink(destination: Community(), tag: NavigationItem.community, selection: $selection) {
+            NavigationLink(destination: Community().environmentObject(DataManager.shared), tag: NavigationItem.community, selection: $selection) {
                 Label(NavigationItem.community.label, systemImage: NavigationItem.community.symbolName)
             }
             .tag(NavigationItem.community)

@@ -8,17 +8,38 @@
 import SwiftUI
 
 struct Community: View {
-    let plants: [Plant] = dummyData
+    
+    @EnvironmentObject var data: DataManager
+
 
     var body: some View {
         List {
-            ForEach(plants) { plant in
+            ForEach(data.allPlants) { plant in
                 PlantRow(plant: plant)
             }
         }
         .listStyle(PlainListStyle())
         .navigationTitle(NavigationItem.community.label)
+        .toolbar {
+            #if os(iOS)
+            ToolbarItemGroup(placement: .navigationBarTrailing) {
+                Button(action: getPlants) {
+                    Label("Plants", systemImage: "square.and.arrow.down.on.square")
+                }
+            }
+            #else
+            ToolbarItemGroup() {
+                Button(action: getPlants) {
+                    Label("Plants", systemImage: "square.and.arrow.down.on.square")
+                }
+            }
+            #endif
+        }
 
+    }
+    
+    func getPlants() {
+        data.getAllPlants()
     }
 
 }

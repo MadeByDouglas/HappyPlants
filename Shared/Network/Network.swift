@@ -10,8 +10,8 @@ import Foundation
 typealias DataTaskResult = Swift.Result<(URLResponse, Data), Error>
 typealias DataTaskCompletion = (DataTaskResult) -> Void
 
-typealias GardenersResult = Swift.Result<Gardener, Error>
-typealias GardenersCompletion = (GardenersResult) -> Void
+typealias PlantsResult = Swift.Result<[Plant], Error>
+typealias PlantsCompletion = (PlantsResult) -> Void
 
 
 enum NetworkError: String, Error {
@@ -52,7 +52,7 @@ struct NetworkManager {
         }
     }
     
-    func getAllPeople(completion: @escaping GardenersCompletion) {
+    func getAllPlants(completion: @escaping PlantsCompletion) {
         let api = HappyPlantsAPI.allPlants
         
         api.request { (result) in
@@ -64,26 +64,37 @@ struct NetworkManager {
                 print(dataString!)
                 
                 let decoder = JSONDecoder()
-
-                decoder.dateDecodingStrategy = .custom({ (decoder) -> Date in
-                    let container = try decoder.singleValueContainer()
-                    let dateStr = try container.decode(String.self)
-
-                    let formatter = DateFormatter.SWAPIFormatter
-                    if let date = formatter.date(from: dateStr) {
-                        return date
-                    }
-                    let formatter2 = DateFormatter.SWAPIFormatterReleaseDate
-                    if let date = formatter2.date(from: dateStr) {
-                        return date
-                    }
-                    throw DateError.invalidDate
-                })
-                decoder.keyDecodingStrategy = .convertFromSnakeCase
+                decoder.dateDecodingStrategy = .iso8601
                 
-                let people = try! decoder.decode(Gardener.self, from: data)
+                let plants = try! decoder.decode([Plant].self, from: data)
                 
-                completion(.success(people))
+                completion(.success(plants))
+                
+            case .failure(let error):
+                print(error)
+                
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    func getMyPlants(completion: @escaping PlantsCompletion) {
+        let api = HappyPlantsAPI.myPlants
+        
+        api.request { (result) in
+            switch result {
+            case .success(let response, let data):
+                print(response.description)
+                
+                let dataString = String(data: data, encoding: String.Encoding.utf8)
+                print(dataString!)
+                
+                let decoder = JSONDecoder()
+                decoder.dateDecodingStrategy = .iso8601
+                
+                let plants = try! decoder.decode([Plant].self, from: data)
+                
+                completion(.success(plants))
                 
             case .failure(let error):
                 print(error)

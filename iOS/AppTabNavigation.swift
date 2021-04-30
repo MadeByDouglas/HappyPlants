@@ -14,7 +14,7 @@ struct AppTabNavigation: View {
     var body: some View {
         TabView(selection: $selection) {
             NavigationView {
-                MyPlants()
+                MyPlants().environmentObject(DataManager.shared)
             }
             .tabItem {
                 Label(NavigationItem.myPlants.label, systemImage: NavigationItem.myPlants.symbolName)
@@ -23,7 +23,7 @@ struct AppTabNavigation: View {
             .tag(NavigationItem.myPlants)
             
             NavigationView {
-                Community()
+                Community().environmentObject(DataManager.shared)
             }
             .tabItem {
                 Label(NavigationItem.community.label, systemImage: NavigationItem.community.symbolName)
